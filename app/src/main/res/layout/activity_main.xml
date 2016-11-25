@@ -21,11 +21,11 @@
         android:text="선택을 시작하겠습니까?"
         android:textSize="24sp" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="match_parent"
+    <Switch
+        android:text="Switch"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="시작함" />
+        android:id="@+id/switch1" />
 
     <LinearLayout
         android:id="@+id/line"
@@ -38,10 +38,11 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="좋아하는 애완동물은?"
+            android:text="좋아하는 안드로이드 버전은?"
             android:textSize="24sp" />
 
         <RadioGroup
+            android:id="@+id/radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -51,34 +52,39 @@
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:duplicateParentState="false"
-                android:text="강아지" />
+                android:text="젤리빈(4.3)" />
 
 
             <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="고양이" />
+                android:text="킷캣(4.4)" />
 
             <RadioButton
                 android:id="@+id/radioButton3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="토끼" />
+                android:text="롤리팝(5.0)" />
         </RadioGroup>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="선택완료" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="209dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.62"
+            android:layout_width="116dp"
+            android:layout_height="130dp"
             app:srcCompat="@mipmap/ic_launcher" />
+
+        <Button
+            android:text="종료"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button1" />
+
+        <Button
+            android:text="처음으로"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2" />
     </LinearLayout>
 
 
