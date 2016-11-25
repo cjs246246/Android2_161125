@@ -11,47 +11,51 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView textView1, textView2;
-    CheckBox checkBox;
+    Switch switch1;
     LinearLayout line;
+    RadioGroup radio;
     RadioButton radioButton1, radioButton2, radioButton3;
-    Button button;
+    Button button1, button2;
     ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("애완동물 사진 보기");
+        setTitle("안드로이드 사진 보기");
 
         textView1 = (TextView)findViewById(R.id.textView1);
         textView2 = (TextView)findViewById(R.id.textView2);
-        checkBox = (CheckBox)findViewById(R.id.checkBox);
+        switch1=(Switch)findViewById(R.id.switch1);
         line = (LinearLayout)findViewById(R.id.line);
+        radio=(RadioGroup)findViewById(R.id.radio);
         radioButton1 = (RadioButton)findViewById(R.id.radioButton1);
         radioButton2 = (RadioButton)findViewById(R.id.radioButton2);
         radioButton3 = (RadioButton)findViewById(R.id.radioButton3);
-        button = (Button)findViewById(R.id.button);
+        button1 = (Button)findViewById(R.id.button1);
+        button2 = (Button)findViewById(R.id.button2);
         imageView = (ImageView)findViewById(R.id.imageView);
 
-      checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+      switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
           @Override
           public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-              if(checkBox.isChecked()){
+              if(switch1.isChecked()){
                   line.setVisibility(View.VISIBLE);
               }
               else {
                   line.setVisibility(View.INVISIBLE);
               }
-          };
+          }
       });
-        button.setOnClickListener(new View.OnClickListener() {
+        radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if(radioButton1.isChecked()){
                     imageView.setImageResource(R.drawable.picture1);
                 }
@@ -63,7 +67,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch1.setChecked(false);
+                radioButton1.setChecked(true);
+            }
+        });
     }
 }
