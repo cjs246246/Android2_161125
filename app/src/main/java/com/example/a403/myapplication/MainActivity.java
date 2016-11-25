@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -37,9 +38,32 @@ public class MainActivity extends AppCompatActivity {
         button = (Button)findViewById(R.id.button);
         imageView = (ImageView)findViewById(R.id.imageView);
 
-        if (checkBox.isChecked()){
-            line.setVisibility(View.VISIBLE);
-        };
-        //dfssdf
+      checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+          @Override
+          public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+              if(checkBox.isChecked()){
+                  line.setVisibility(View.VISIBLE);
+              }
+              else {
+                  line.setVisibility(View.INVISIBLE);
+              }
+          };
+      });
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(radioButton1.isChecked()){
+                    imageView.setImageResource(R.drawable.picture1);
+                }
+                else if(radioButton2.isChecked()){
+                    imageView.setImageResource(R.drawable.picture2);
+                }
+                else if(radioButton3.isChecked()){
+                    imageView.setImageResource(R.drawable.picture3);
+                }
+            }
+        });
+
+
     }
 }
